@@ -89,7 +89,9 @@ DATABASES = {
     }
 }
 STORAGES = {
-    # ...
+     'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    }, 
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
@@ -131,10 +133,10 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # Static files and Media
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Default primary key field type
